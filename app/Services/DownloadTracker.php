@@ -2,19 +2,33 @@
 
 namespace App\Services;
 
+use App\Data\DownloadEventData;
+use App\Jobs\NotifyDownloadJob;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 final class DownloadTracker
 {
-    public function record(string $filename, ?string $ipAddress, ?string $userAgent): void
+    public function record(DownloadEventData $event): int
     {
-        DB::table('download_events')->insert([
-            'filename' => $filename,
-            'ip_address' => $ipAddress,
-            'user_agent' => $userAgent ? mb_substr($userAgent, 0, 500) : null,
-            'created_at' => now(),
-            'updated_at' => now(),
+        $now = now();
+
+        $id = (int) DB::table('download_events')->insertGetId([
+            ...$event->toAttributes(),
+            'created_at' => $now,
+            'updated_at' => $now,
         ]);
+
+        if ($this->shouldNotifyTelegram()) {
+            NotifyDownloadJob::dispatch($id);
+        }
+
+        return $id;
+    }
+
+    public function find(int $id): ?object
+    {
+        return DB::table('download_events')->find($id);
     }
 
     public function stats(): array
@@ -33,7 +47,23 @@ final class DownloadTracker
             'total' => (int) DB::table('download_events')->count(),
             'last_download_at' => $last?->created_at,
             'by_day' => $byDay,
+            'by_site_locale' => $this->groupCount('site_locale'),
+            'by_browser' => $this->groupCount('browser'),
+            'by_os' => $this->groupCount('os'),
+            'by_timezone' => $this->groupCount('timezone'),
+            'by_country' => $this->groupCount('country_name'),
         ];
+    }
+
+    /**
+     * @return Collection<int, object>
+     */
+    public function recent(int $limit = 100): Collection
+    {
+        return DB::table('download_events')
+            ->latest('created_at')
+            ->limit($limit)
+            ->get();
     }
 
     public function formatForConsole(): string
@@ -46,5 +76,31 @@ final class DownloadTracker
         }
 
         return implode(PHP_EOL, $lines);
+    }
+
+    /**
+     * @return array<string, int>
+     */
+    private function groupCount(string $column): array
+    {
+        return DB::table('download_events')
+            ->selectRaw($column.' as label, COUNT(*) as total')
+            ->whereNotNull($column)
+            ->where($column, '!=', '')
+            ->groupBy($column)
+            ->orderByDesc('total')
+            ->limit(20)
+            ->get()
+            ->mapWithKeys(fn ($row): array => [(string) $row->label => (int) $row->total])
+            ->all();
+    }
+
+    private function shouldNotifyTelegram(): bool
+    {
+        $telegram = config('voice_flow.telegram');
+
+        return (bool) ($telegram['notify_downloads'] ?? false)
+            && ! empty($telegram['bot_token'])
+            && ! empty($telegram['chat_id']);
     }
 }

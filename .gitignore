@@ -7,6 +7,8 @@
 /public/downloads/*.msi
 /storage/*.key
 /storage/pail
+/storage/app/geoip/
+*.mmdb
 /vendor
 /database/*.sqlite
 .env
@@ -24,3 +26,5 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+Thumbs.db
+.DS_Store

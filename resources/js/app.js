@@ -30,6 +30,27 @@ document.querySelector('[data-locale-switcher]')?.addEventListener('change', (ev
     }
 });
 
+const appendDownloadTimezone = (link) => {
+    try {
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        if (!timezone) {
+            return;
+        }
+
+        const url = new URL(link.href, window.location.origin);
+        url.searchParams.set('tz', timezone);
+        link.href = url.toString();
+    } catch (_) {
+        // Ignore unsupported environments.
+    }
+};
+
+document.querySelectorAll('[data-download-link]').forEach((link) => {
+    appendDownloadTimezone(link);
+    link.addEventListener('click', () => appendDownloadTimezone(link), { capture: true });
+});
+
 const header = document.querySelector('[data-site-header]');
 const menuPanel = document.querySelector('[data-site-menu]');
 const menuBackdrop = document.querySelector('[data-menu-backdrop]');

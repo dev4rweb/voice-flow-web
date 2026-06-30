@@ -12,4 +12,9 @@ abstract class TestCase extends BaseTestCase
 
         $this->withoutVite();
     }
+
+    protected function createAdminUser(array $attributes = []): \App\Models\User
+    {
+        return \App\Models\User::factory()->admin()->create($attributes);
+    }
 }

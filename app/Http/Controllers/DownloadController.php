@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\DownloadContextResolver;
 use App\Services\DownloadTracker;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -9,15 +10,18 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 final class DownloadController extends Controller
 {
-    public function file(Request $request, DownloadTracker $tracker): BinaryFileResponse|RedirectResponse
-    {
+    public function file(
+        Request $request,
+        DownloadContextResolver $contextResolver,
+        DownloadTracker $tracker,
+    ): BinaryFileResponse|RedirectResponse {
         $filename = (string) config('voice_flow.download_filename');
         $path = $this->absolutePath((string) config('voice_flow.download_path'));
         $externalUrl = config('voice_flow.download_url');
 
         abort_if(empty($externalUrl) && ! is_file($path), 404, 'Voice Flow installer is not uploaded yet.');
 
-        $tracker->record($filename, $request->ip(), $request->userAgent());
+        $tracker->record($contextResolver->resolve($request, $filename));
 
         if ($externalUrl) {
             return redirect()->away($externalUrl);

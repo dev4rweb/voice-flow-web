@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    Options +SymLinksIfOwnerMatch -MultiViews
+    RewriteEngine On
+
+    # Запрет прямого доступа к служебным каталогам Laravel, если document root указывает на корень проекта.
+    RewriteRule ^(app|bootstrap|config|database|resources|routes|storage|tests|vendor)(/|$) - [F,L,NC]
+
+    # Все запросы направляем в public/ — точку входа Laravel.
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<FilesMatch "^(\.env|\.env\..*|composer\.(json|lock)|artisan|phpunit\.xml(\.dist)?)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>

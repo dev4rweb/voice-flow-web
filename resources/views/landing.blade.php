@@ -55,7 +55,7 @@
                         <a href="#how-to">{{ $content['nav']['how_to'] }}</a>
                         <a href="#requirements">{{ $content['nav']['requirements'] }}</a>
                         <a href="#privacy">{{ $content['nav']['privacy'] }}</a>
-                        <a class="nav-cta" href="{{ route('download.file') }}">{{ $content['nav']['download'] }}</a>
+                        <a class="nav-cta" href="{{ route('download.file', ['locale' => $locale]) }}" data-download-link>{{ $content['nav']['download'] }}</a>
                     </nav>
                 </div>
             </aside>
@@ -89,7 +89,7 @@
                 <h1>{{ $content['hero']['title'] }}</h1>
                 <p class="lead">{{ $content['hero']['body'] }}</p>
                 <div class="actions">
-                    <a class="button button-primary" href="{{ route('download.file') }}">{{ $content['hero']['primary_cta'] }}</a>
+                    <a class="button button-primary" href="{{ route('download.file', ['locale' => $locale]) }}" data-download-link>{{ $content['hero']['primary_cta'] }}</a>
                     {{-- <a class="button button-secondary" href="{{ $product['github_url'] }}">{{ $content['hero']['secondary_cta'] }}</a> --}}
                 </div>
                 <ul class="badges">
