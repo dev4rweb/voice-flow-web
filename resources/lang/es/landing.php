@@ -3,7 +3,7 @@
 return [
     'meta' => [
         'title' => 'Voice Flow - dictado por voz para Windows con Whisper local',
-        'description' => 'Aplicación gratuita de dictado push-to-talk para Windows: mantén Ctrl+Win, habla, suelta y el texto aparece en la ventana activa. Reconocimiento local faster-whisper, 90+ idiomas, offline-first.',
+        'description' => 'Dictado push-to-talk gratuito y sin anuncios para Windows: mantén Ctrl+Win, habla, suelta y el texto aparece en la ventana activa. Reconocimiento local faster-whisper, 90+ idiomas, offline-first.',
     ],
     'nav' => ['features' => 'Funciones', 'how_to' => 'Cómo funciona', 'requirements' => 'Requisitos', 'privacy' => 'Privacidad', 'download' => 'Descargar'],
     'ui' => ['language_label' => 'Idioma', 'theme_label' => 'Tema', 'theme_toggle' => 'Cambiar tema', 'theme_light' => 'Claro', 'theme_dark' => 'Oscuro', 'menu_toggle' => 'Abrir menú', 'menu_close' => 'Cerrar menú', 'scroll_top' => 'Volver arriba'],
@@ -14,7 +14,7 @@ return [
         'primary_cta' => 'Descargar Voice Flow 1.2.9',
         'secondary_cta' => 'Ver código en GitHub',
     ],
-    'badges' => ['Windows 10 / 11, 64-bit', 'faster-whisper local primero', '90+ idiomas de reconocimiento', 'Licencia MIT'],
+    'badges' => ['Gratis · Sin anuncios', 'Windows 10 / 11, 64-bit', 'faster-whisper local primero', '90+ idiomas de reconocimiento', 'Licencia MIT'],
     'about_title' => 'Dictado rápido sin cambiar de ventana',
     'about_body' => 'Voice Flow funciona desde la bandeja del sistema y mantiene el flujo simple: un atajo global, captura de micrófono, reconocimiento de voz y pegado automático en la ventana activa.',
     'supported_languages' => 'Idiomas del sitio: inglés, español, francés, alemán, portugués, chino y árabe. La app reconoce 90+ idiomas Whisper.',
@@ -44,9 +44,10 @@ return [
     'recognition_languages_note' => 'Los nombres se muestran en su forma nativa, como en el menú de la bandeja.',
     'faq_title' => 'FAQ',
     'faq' => [
+        ['question' => '¿Voice Flow es gratis?', 'answer' => 'Sí. La descarga es gratuita, la app no tiene anuncios y la licencia es MIT.'],
         ['question' => '¿Voice Flow funciona sin conexión?', 'answer' => 'Sí, después de que el modelo local faster-whisper esté disponible.'],
         ['question' => '¿Por qué SmartScreen muestra una advertencia?', 'answer' => 'El exe aún no está firmado; el código fuente y el SHA-256 son públicos.'],
         ['question' => '¿Qué idiomas puede reconocer?', 'answer' => 'Whisper admite 99 idiomas de voz, además de detección automática. Consulta la lista completa en la sección Idiomas de reconocimiento más arriba.'],
     ],
-    'footer' => 'Aplicación gratuita de dictado para Windows por dev4rweb.',
+    'footer' => 'Aplicación gratuita y sin anuncios de dictado para Windows por dev4rweb.',
 ];

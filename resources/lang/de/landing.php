@@ -3,7 +3,7 @@
 return [
     'meta' => [
         'title' => 'Voice Flow - Spracheingabe für Windows mit lokalem Whisper',
-        'description' => 'Kostenlose Push-to-talk-Diktierapp für Windows: Ctrl+Win halten, sprechen, loslassen, und Text erscheint im aktiven Fenster. Lokales faster-whisper, 90+ Sprachen, offline-first.',
+        'description' => 'Kostenlose Push-to-talk-Diktierapp ohne Werbung für Windows: Ctrl+Win halten, sprechen, loslassen, und Text erscheint im aktiven Fenster. Lokales faster-whisper, 90+ Sprachen, offline-first.',
     ],
     'nav' => ['features' => 'Funktionen', 'how_to' => 'So geht es', 'requirements' => 'Anforderungen', 'privacy' => 'Datenschutz', 'download' => 'Download'],
     'ui' => ['language_label' => 'Sprache', 'theme_label' => 'Design', 'theme_toggle' => 'Design wechseln', 'theme_light' => 'Hell', 'theme_dark' => 'Dunkel', 'menu_toggle' => 'Menü öffnen', 'menu_close' => 'Menü schließen', 'scroll_top' => 'Nach oben'],
@@ -14,7 +14,7 @@ return [
         'primary_cta' => 'Voice Flow 1.2.9 herunterladen',
         'secondary_cta' => 'Quellcode auf GitHub',
     ],
-    'badges' => ['Windows 10 / 11, 64-bit', 'Lokales faster-whisper zuerst', '90+ Erkennungssprachen', 'MIT-Lizenz'],
+    'badges' => ['Kostenlos · Ohne Werbung', 'Windows 10 / 11, 64-bit', 'Lokales faster-whisper zuerst', '90+ Erkennungssprachen', 'MIT-Lizenz'],
     'about_title' => 'Schnelles Diktieren ohne Fensterwechsel',
     'about_body' => 'Voice Flow läuft im System-Tray und hält den Ablauf einfach: globaler Hotkey, Mikrofonaufnahme, Spracherkennung und automatisches Einfügen in das aktive Fenster.',
     'supported_languages' => 'Website-Sprachen: Englisch, Spanisch, Französisch, Deutsch, Portugiesisch, Chinesisch, Arabisch. Die App erkennt 90+ Whisper-Sprachen.',
@@ -44,9 +44,10 @@ return [
     'recognition_languages_note' => 'Sprachnamen werden in ihrer nativen Form angezeigt, wie im Tray-Menü der App.',
     'faq_title' => 'FAQ',
     'faq' => [
+        ['question' => 'Ist Voice Flow kostenlos?', 'answer' => 'Ja. Der Download ist kostenlos, die App hat keine Werbung, und die Lizenz ist MIT.'],
         ['question' => 'Funktioniert Voice Flow offline?', 'answer' => 'Ja, sobald das lokale faster-whisper-Modell verfügbar ist.'],
         ['question' => 'Warum warnt SmartScreen?', 'answer' => 'Die exe ist noch nicht code-signiert; Quellcode und SHA-256 sind öffentlich.'],
         ['question' => 'Welche Sprachen kann es erkennen?', 'answer' => 'Whisper unterstützt 99 gesprochene Sprachen plus automatische Erkennung. Die vollständige Liste findest du im Abschnitt Erkennungssprachen oben.'],
     ],
-    'footer' => 'Kostenlose Windows-Diktierapp von dev4rweb.',
+    'footer' => 'Kostenlose Windows-Diktierapp ohne Werbung von dev4rweb.',
 ];

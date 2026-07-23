@@ -3,7 +3,7 @@
 return [
     'meta' => [
         'title' => 'Voice Flow - voice typing for Windows with local Whisper dictation',
-        'description' => 'Free Windows push-to-talk dictation app: hold Ctrl+Win, speak, release, and text appears in any active window. Local faster-whisper recognition, 90+ speech languages, offline-first.',
+        'description' => 'Free, ad-free Windows push-to-talk dictation: hold Ctrl+Win, speak, release, and text appears in any active window. Local faster-whisper recognition, 90+ speech languages, offline-first.',
     ],
     'nav' => ['features' => 'Features', 'how_to' => 'How it works', 'requirements' => 'Requirements', 'privacy' => 'Privacy', 'download' => 'Download'],
     'ui' => [
@@ -23,7 +23,7 @@ return [
         'primary_cta' => 'Download Voice Flow 1.2.9',
         'secondary_cta' => 'View source on GitHub',
     ],
-    'badges' => ['Windows 10 / 11, 64-bit', 'Local faster-whisper first', '90+ recognition languages', 'MIT licensed'],
+    'badges' => ['Free · No ads', 'Windows 10 / 11, 64-bit', 'Local faster-whisper first', '90+ recognition languages', 'MIT licensed'],
     'about_title' => 'Built for fast dictation without switching windows',
     'about_body' => 'Voice Flow runs from the system tray and keeps the workflow simple: one global hotkey, microphone capture, speech recognition, and automatic paste into the active window.',
     'supported_languages' => 'Website languages: English, Spanish, French, German, Portuguese, Chinese, Arabic. The app can recognize 90+ Whisper languages.',
@@ -53,9 +53,10 @@ return [
     'recognition_languages_note' => 'Language names are shown in their native form, as in the app tray menu.',
     'faq_title' => 'FAQ',
     'faq' => [
+        ['question' => 'Is Voice Flow free?', 'answer' => 'Yes. The download is free, the app has no ads, and the license is MIT.'],
         ['question' => 'Does Voice Flow work offline?', 'answer' => 'Yes, after the local faster-whisper model is available.'],
         ['question' => 'Why does SmartScreen warn me?', 'answer' => 'The exe is not code-signed yet; the source code and SHA-256 are public.'],
         ['question' => 'What languages can it recognize?', 'answer' => 'Whisper supports 99 speech languages, plus automatic detection. See the full list in the Recognition languages section above.'],
     ],
-    'footer' => 'Free Windows dictation app by dev4rweb.',
+    'footer' => 'Free, ad-free Windows dictation app by dev4rweb.',
 ];

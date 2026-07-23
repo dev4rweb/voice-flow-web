@@ -3,7 +3,7 @@
 return [
     'meta' => [
         'title' => 'Voice Flow - Windows 本地 Whisper 语音输入',
-        'description' => '免费的 Windows 按键说话听写工具：按住 Ctrl+Win，说话，松开后文本进入当前窗口。本地 faster-whisper 识别，支持 90+ 语音语言，优先离线。',
+        'description' => '免费无广告的 Windows 按键说话听写工具：按住 Ctrl+Win，说话，松开后文本进入当前窗口。本地 faster-whisper 识别，支持 90+ 语音语言，优先离线。',
     ],
     'nav' => ['features' => '功能', 'how_to' => '使用方式', 'requirements' => '要求', 'privacy' => '隐私', 'download' => '下载'],
     'ui' => ['language_label' => '语言', 'theme_label' => '主题', 'theme_toggle' => '切换主题', 'theme_light' => '浅色', 'theme_dark' => '深色', 'menu_toggle' => '打开菜单', 'menu_close' => '关闭菜单', 'scroll_top' => '返回顶部'],
@@ -14,7 +14,7 @@ return [
         'primary_cta' => '下载 Voice Flow 1.2.9',
         'secondary_cta' => '在 GitHub 查看源码',
     ],
-    'badges' => ['Windows 10 / 11，64 位', '优先本地 faster-whisper', '90+ 识别语言', 'MIT 许可证'],
+    'badges' => ['免费 · 无广告', 'Windows 10 / 11，64 位', '优先本地 faster-whisper', '90+ 识别语言', 'MIT 许可证'],
     'about_title' => '无需切换窗口的快速听写',
     'about_body' => 'Voice Flow 在系统托盘运行，并保持流程简单：全局快捷键、麦克风采集、语音识别，以及自动粘贴到活动窗口。',
     'supported_languages' => '网站语言：英语、西班牙语、法语、德语、葡萄牙语、中文、阿拉伯语。应用可识别 90+ Whisper 语言。',
@@ -44,9 +44,10 @@ return [
     'recognition_languages_note' => '语言名称以原生形式显示，与应用托盘菜单一致。',
     'faq_title' => '常见问题',
     'faq' => [
+        ['question' => 'Voice Flow 是免费的吗？', 'answer' => '是的。下载免费，应用无广告，许可证为 MIT。'],
         ['question' => 'Voice Flow 可以离线工作吗？', 'answer' => '可以，本地 faster-whisper 模型可用后即可离线识别。'],
         ['question' => '为什么会出现 SmartScreen？', 'answer' => 'exe 还没有代码签名；源码和 SHA-256 都是公开的。'],
         ['question' => '能识别哪些语言？', 'answer' => 'Whisper 支持 99 种语音语言，并支持自动检测。完整列表见上方的“识别语言”部分。'],
     ],
-    'footer' => 'dev4rweb 提供的免费 Windows 听写应用。',
+    'footer' => 'dev4rweb 提供的免费无广告 Windows 听写应用。',
 ];

@@ -33,6 +33,9 @@ final class LandingTest extends TestCase
             ->assertSee('data-reveal', false)
             ->assertSee('rel="icon"', false)
             ->assertSee('images/voice-flow-icon.png', false)
+            ->assertSee('Free · No ads', false)
+            ->assertSee('Is Voice Flow free?', false)
+            ->assertSee('Free, ad-free Windows push-to-talk dictation', false)
             ->assertSee('property="og:image"', false);
 
         $this->get('/ar')->assertOk()->assertSee('lang="ar" dir="rtl"', false);
